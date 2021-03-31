@@ -2,15 +2,22 @@
 
 // Find the sum of all the multiples of 3 or 5 below the provided parameter value number.
 
-const multiplesOf3And5 = number => {
-  let sum = 0;
+// const multiplesOf3And5 = number => {
+//   let sum = 0;
 
-  for (let i = 0; i < number; i++) {
-    if (i % 3 === 0 || i % 5 === 0) {
-      sum += i;
-    }
-  }
-  return sum;
+//   for (let i = 0; i < number; i++) {
+//     if (i % 3 === 0 || i % 5 === 0) {
+//       sum += i;
+//     }
+//   }
+//   return sum;
+// };
+const multiplesOf3And5 = number => {
+  return Array(number)
+    .fill(0)
+    .map((value, index) => index + 1)
+    .filter(value => value % 3 === 0 || value % 5 === 0)
+    .reduce((sum, num) => sum + num);
 };
-multiplesOf3And5(1000);
+console.log(multiplesOf3And5(1000));
 // output = 233168
